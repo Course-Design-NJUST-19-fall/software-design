@@ -5,7 +5,7 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "fucking i哦啊是第几哦打扫教室打扫的急哦aojij2ee!" %>
+<h1><%= "好儿子刘星辰" %>
 </h1>
 <br/>
 <a href="hello-servlet">Hello 阿松大Servlet</a>
