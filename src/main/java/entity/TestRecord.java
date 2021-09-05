@@ -5,17 +5,17 @@ public class TestRecord {
     private int id;
     private int problemId;
     private String submitterId;
-    private int runningTime;
-    private int occupiedMemory;
-    private Result result;
+    private int cpuTimeCost;
+    private int memoryCost;
+    private Result judgeResult;
 
     public TestRecord(int id, int problemId,String submitterId,int runningTime,int occupiedMemory,Result result){
         this.id=id;
         this.problemId=problemId;
         this.submitterId=submitterId;
-        this.runningTime=runningTime;
-        this.occupiedMemory=occupiedMemory;
-        this.result=result;
+        this.cpuTimeCost =runningTime;
+        this.memoryCost =occupiedMemory;
+        this.judgeResult =result;
     }
 
     public TestRecord(){
@@ -34,16 +34,16 @@ public class TestRecord {
         return submitterId;
     }
 
-    public int getRunningTime() {
-        return runningTime;
+    public int getCpuTimeCost() {
+        return cpuTimeCost;
     }
 
-    public int getOccupiedMemory() {
-        return occupiedMemory;
+    public int getMemoryCost() {
+        return memoryCost;
     }
 
-    public Result getResult() {
-        return result;
+    public Result getJudgeResult() {
+        return judgeResult;
     }
 
     public void setId(int id) {
@@ -58,15 +58,15 @@ public class TestRecord {
         this.submitterId = submitterId;
     }
 
-    public void setRunningTime(int runningTime) {
-        this.runningTime = runningTime;
+    public void setCpuTimeCost(int cpuTimeCost) {
+        this.cpuTimeCost = cpuTimeCost;
     }
 
-    public void setOccupiedMemory(int occupiedMemory) {
-        this.occupiedMemory = occupiedMemory;
+    public void setMemoryCost(int memoryCost) {
+        this.memoryCost = memoryCost;
     }
 
-    public void setResult(Result result) {
-        this.result = result;
+    public void setJudgeResult(Result judgeResult) {
+        this.judgeResult = judgeResult;
     }
 }

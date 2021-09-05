@@ -1,16 +1,16 @@
 package entity;
 
-enum type{STUDENT,TEACHER,MONITOR};
+enum Type {STUDENT,TEACHER,MONITOR};
 public class User {
-    protected String userName;
-    protected String passWord;
+    protected String id;
+    protected String password;
     protected String nicoName;
     protected String phoneNumber;
     protected boolean listenMessage;
-    protected type type;
-    public User(String userName,String passWord,String nicoName,String phoneNumber,type type, boolean listenMessage){
-        this.userName =userName;
-        this.passWord =passWord;
+    protected Type type;
+    public User(String userName, String password, String nicoName, String phoneNumber, Type type, boolean listenMessage){
+        this.id =userName;
+        this.password =password;
         this.nicoName =nicoName;
         this.listenMessage =listenMessage;
         this.phoneNumber =phoneNumber;
@@ -19,11 +19,11 @@ public class User {
     public User(){
 
     }
-    public String getUserName(){
-        return this.userName;
+    public String getId(){
+        return this.id;
     }
-    public String getPassWord(){
-        return this.passWord;
+    public String getPassword(){
+        return this.password;
     }
     public String getNicoName(){
         return this.nicoName;
@@ -34,14 +34,14 @@ public class User {
     public boolean getListenMessage(){
         return this.listenMessage;
     }
-    public type getType(){
+    public Type getType(){
         return this.type;
     }
-    public void setUserName(String userName){
-        this.userName = userName;
+    public void setId(String id){
+        this.id = id;
     }
-    public void setPassWord(String passWord){
-        this.passWord =passWord;
+    public void setPassword(String password){
+        this.password = password;
     }
     public void setNicoName(String nicoName){
         this.nicoName =nicoName;
@@ -52,7 +52,7 @@ public class User {
     public void setListenMessage(boolean listenMessage){
         this.listenMessage =listenMessage;
     }
-    public void setType(type type){
+    public void setType(Type type){
         this.type =type;
     }
 

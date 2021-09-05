@@ -1,16 +1,17 @@
 package entity;
 
+import java.util.Collections;
 import java.util.List;
 
 public class Class {
     private int id;
     private String teacherId;
-    private List<String> studentsId;
-    private List<Integer> homeworkId;
-    public Class(int id,String teacherId,List<String> studentsId,List<Integer> homeworkId){
+    private List<String> studentIds;
+    private List<Integer> homeworkIds;
+    public Class(int id,String teacherId,List<String> studentIds,List<Integer> homeworkIds){
        this.id=id;
-       this.homeworkId=homeworkId;
-       this.studentsId=studentsId;
+       this.homeworkIds =homeworkIds;
+       this.studentIds =studentIds;
        this.teacherId=teacherId;
     }
 
@@ -22,12 +23,12 @@ public class Class {
         return teacherId;
     }
 
-    public List<Integer> getHomeworkId() {
-        return homeworkId;
+    public List<Integer> getHomeworkIds() {
+        return homeworkIds;
     }
 
-    public List<String> getStudentsId() {
-        return studentsId;
+    public List<String> getStudentIds() {
+        return studentIds;
     }
 
     public void setId(int id) {
@@ -38,11 +39,25 @@ public class Class {
         this.teacherId = teacherId;
     }
 
-    public void setHomeworkId(List<Integer> homeworkId) {
-        this.homeworkId = homeworkId;
+    public void setHomeworkIds(List<Integer> homeworkIds) {
+        this.homeworkIds = homeworkIds;
     }
 
-    public void setStudentsId(List<String> studentsId) {
-        this.studentsId = studentsId;
+    public void setStudentIds(List<String> studentIds) {
+        this.studentIds = studentIds;
+    }
+
+    public void addHomework(int homeworkId){
+        this.homeworkIds.add(Integer.valueOf(homeworkId));
+        Collections.sort(homeworkIds);
+    }
+    public void addStudent(String studentId){
+        this.studentIds.add(studentId);
+    }
+    public void deleteStudent(String studentId){
+        this.studentIds.remove(studentId);
+    }
+    public void deleteHomework(int homeworkId){
+        this.homeworkIds.remove(Integer.valueOf(homeworkId));
     }
 }

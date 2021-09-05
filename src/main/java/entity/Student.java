@@ -3,8 +3,8 @@ package entity;
 public class Student extends User {
        private int submitNumber;
        private int acceptNumber;
-       public Student(String userName,String passWord,String nicoName,String phoneNumber,type type, boolean listenMessage,
-                      int submitNumber,int acceptNumber){
+       public Student(String userName, String passWord, String nicoName, String phoneNumber, Type type, boolean listenMessage,
+                      int submitNumber, int acceptNumber){
            super(userName, passWord, nicoName, phoneNumber, type, listenMessage);
            this.submitNumber =submitNumber;
            this.acceptNumber =acceptNumber;
