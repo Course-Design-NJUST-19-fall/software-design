@@ -1,6 +1,5 @@
 package entity;
 
-enum Type {STUDENT,TEACHER,MONITOR};
 public class User {
     protected String id;
     protected String password;

@@ -1,6 +1,5 @@
 package entity;
 
-enum Result{ACCEPT,WRONG_ANSWER,COMPILATION_ERROR,TIME_LIMIT_EXCEEDED,MEMORY_LIMIT_EXCEEDED,SEGMENTATION_FAULT,RUNTIME_ERROR};
 public class TestRecord {
     private int id;
     private int problemId;

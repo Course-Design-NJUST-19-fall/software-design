@@ -6,18 +6,20 @@ public class Problem {
     private int memoryLimit;
     private int acceptNumber;
     private int submitNumber;
+    private int rating;
     private String problemName;
     private String problemPath;
     private String inputPath;
     private String outputPath;
-    public Problem(int id,int cpuTimeLimit,int memoryLimit,int acceptNumber,int submitNumber,String problemName,
-                   String problemPath,String inputPath,String outputPath)
+    public Problem(int id,int cpuTimeLimit,int memoryLimit,int acceptNumber,int submitNumber, int rating,
+                   String problemName,String problemPath,String inputPath,String outputPath)
     {
         this.id=id;
         this.cpuTimeLimit=cpuTimeLimit;
         this.memoryLimit=memoryLimit;
         this.acceptNumber=acceptNumber;
         this.submitNumber=submitNumber;
+        this.rating = rating;
         this.problemName=problemName;
         this.problemPath=problemPath;
         this.inputPath=inputPath;
@@ -42,8 +44,13 @@ public class Problem {
     public int getSubmitNumber() {
         return submitNumber;
     }
+
     public int getCpuTimeLimit() {
         return cpuTimeLimit;
+    }
+
+    public int getRating() {
+        return rating;
     }
 
     public int getMemoryLimit() {
@@ -80,6 +87,10 @@ public class Problem {
 
     public void setMemoryLimit(int memoryLimit) {
         this.memoryLimit = memoryLimit;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public void setProblemName(String problemName) {
