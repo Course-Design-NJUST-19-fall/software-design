@@ -7,6 +7,7 @@ public class TestRecord {
     private int cpuTimeCost;
     private int memoryCost;
     private Result judgeResult;
+    private String complieErrorMessage;
 
     public TestRecord(int id, int problemId,String submitterId,int runningTime,int occupiedMemory,Result result){
         this.id=id;
@@ -45,6 +46,10 @@ public class TestRecord {
         return judgeResult;
     }
 
+    public String getComplieErrorMessage() {
+        return complieErrorMessage;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -67,5 +72,9 @@ public class TestRecord {
 
     public void setJudgeResult(Result judgeResult) {
         this.judgeResult = judgeResult;
+    }
+
+    public void setComplieErrorMessage(String complieErrorMessage) {
+        this.complieErrorMessage = complieErrorMessage;
     }
 }
