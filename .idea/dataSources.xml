@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="opengauss_Oj - Online_Judge@116.63.192.58" uuid="726801b2-df45-4087-a0fa-97c64039ea8c">
+    <data-source source="LOCAL" name="online_judge@121.37.137.154" uuid="408693af-c5b3-4501-905e-a6c673a5b496">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://116.63.192.58:26000/Online_Judge</jdbc-url>
+      <jdbc-url>jdbc:postgresql://121.37.137.154:26000/online_judge</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

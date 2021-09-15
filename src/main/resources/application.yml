@@ -1,0 +1,14 @@
+# 应用名称
+spring:
+  application:
+    name: mybatisplus
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://124.71.177.32:26000/Online_Judge?characterEncoding=utf8
+    username: team
+    password: 4C7A63abcd
+
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+

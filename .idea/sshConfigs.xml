@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SshConfigs">
-    <configs>
-      <sshConfig connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="116.63.192.58" id="dcd4f9ab-d94c-4225-9746-01cc5d16911a" keyPath="C:\Users\李洲诚\.ssh\KeyPair-f9ec.pem" port="22" nameFormat="DESCRIPTIVE" username="root" />
-    </configs>
-  </component>
-</project>
