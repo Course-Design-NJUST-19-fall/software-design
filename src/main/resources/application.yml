@@ -4,10 +4,14 @@ spring:
     name: mybatisplus
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://124.71.177.32:26000/Online_Judge?characterEncoding=utf8
+    url: jdbc:postgresql://121.37.137.154:26000/online_judge?useUnicode=true&characterEncoding=UTF-8&currentSchema=formal_db
     username: team
-    password: 4C7A63abcd
-
+    password: 4C7A63abcd!
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-enums-package:
+    enums
 # 应用服务 WEB 访问端口
 server:
   port: 8080
