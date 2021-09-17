@@ -1,7 +1,7 @@
 package tool;
 
 import entity.Problem;
-import entity.Result;
+import enums.ResultEnum;
 import entity.TestRecord;
 
 import java.io.*;
@@ -87,7 +87,7 @@ public class JudgeHost {
         RunningInformation ret = new RunningInformation();
         ret.cpuTimeCost = 100;
         ret.memoryCost = 100;
-        ret.runningCondition = Result.ACCEPT;
+        ret.runningCondition = ResultEnum.ACCEPT;
         return ret;
     }
 
@@ -122,7 +122,7 @@ public class JudgeHost {
     //外部接口，判一道题目
     public TestRecord startJudge(){
         //测评结果初始化
-        TestRecord result = new TestRecord(0, problem.getId(),null,0,0,Result.ACCEPT);
+        TestRecord result = new TestRecord();
 
         //编译并设置编译器报错信息
         String ceMessage = null;
@@ -134,8 +134,8 @@ public class JudgeHost {
         assert ceMessage != null;
         //非空串代表编译失败,直接返回
         if(!ceMessage.isEmpty()){
-            result.setJudgeResult(Result.COMPILATION_ERROR);
-            result.setComplieErrorMessage(ceMessage);
+            result.setResult(ResultEnum.COMPILATION_ERROR);
+            result.setCompilationErrorMessage(ceMessage);
             return result;
         }
 
@@ -149,12 +149,12 @@ public class JudgeHost {
             result.setMemoryCost( Math.max(result.getMemoryCost(),  inf.memoryCost));
 
             //若有问题直接返回
-            if(inf.runningCondition!=Result.ACCEPT){
-                result.setJudgeResult(inf.runningCondition);
+            if(inf.runningCondition!=ResultEnum.ACCEPT){
+                result.setResult(inf.runningCondition);
                 return result;
             }
-            if(false == this.compareFile(i)){
-                result.setJudgeResult(Result.WRONG_ANSWER);
+            if(!this.compareFile(i)){
+                result.setResult(ResultEnum.WRONG_ANSWER);
                 return result;
             }
         }
@@ -166,5 +166,5 @@ public class JudgeHost {
 class RunningInformation{
     protected int cpuTimeCost;
     protected int memoryCost;
-    protected Result runningCondition;
+    protected ResultEnum runningCondition;
 }

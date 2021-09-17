@@ -1,6 +1,8 @@
 package entity;
 
 import java.io.Serializable;
+
+import enums.SortsEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,16 +15,27 @@ import lombok.EqualsAndHashCode;
  * @since 2021-09-16
  */
 @Data
-  @EqualsAndHashCode(callSuper = false)
-    public class Student implements Serializable {
+@EqualsAndHashCode(callSuper = false)
+public class Student extends Account implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  public Student(String userName, String passWord, String nicoName, SortsEnum sort, String phoneNumber, SortsEnum type, boolean listenMessage,
+                 int submitNumber, int acceptNumber, int rating){
+    super(userName, passWord, nicoName, sort, phoneNumber, type, listenMessage);
+    this.submitNumber =submitNumber;
+    this.acceptNumber =acceptNumber;
+    this.rating = rating;
+  }
+  public Student(){
+    super();
+  }
 
-      private String id;
+  private static final long serialVersionUID = 1L;
 
-    private Integer submitNumber;
+  private String id;
 
-    private Integer acceptNumber;
+  private Integer submitNumber;
 
+  private Integer acceptNumber;
 
+  private Integer rating;
 }

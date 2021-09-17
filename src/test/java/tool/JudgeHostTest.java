@@ -5,8 +5,6 @@ import entity.TestRecord;
 
 import java.io.File;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class JudgeHostTest {
     public static void main(String[] args) {
         Problem problem = new Problem(1,100,100,0,0,1,"testProblem","c:/code/strange/printN.c","c:/code/test/input","c:/code/test/output");
@@ -14,9 +12,9 @@ class JudgeHostTest {
 
         JudgeHost judgeHost = new JudgeHost(problem,sourceFile);
         TestRecord record = judgeHost.startJudge();
-        System.out.println(record.getComplieErrorMessage());
+        System.out.println(record.getCompilationErrorMessage());
         System.out.println(record.getCpuTimeCost());
         System.out.println(record.getMemoryCost());
-        System.out.println(record.getJudgeResult());
+        System.out.println(record.getResult());
     }
 }

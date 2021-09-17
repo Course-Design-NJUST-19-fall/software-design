@@ -1,10 +1,16 @@
 package entity;
 
-import java.time.LocalDateTime;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import enums.ResultEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import enums.ResultEnum;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
+
 /**
  * <p>
  * 
@@ -14,24 +20,35 @@ import enums.ResultEnum;
  * @since 2021-09-16
  */
 @Data
-  @EqualsAndHashCode(callSuper = false)
-    public class TestRecord implements Serializable {
+@EqualsAndHashCode(callSuper = false)
+public class TestRecord implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-      private Integer id;
+  public TestRecord(int id, int problemId,String submitterId){
+    this.id=id;
+    this.problemId=problemId;
+    this.submitterId=submitterId;
+  }
+  public TestRecord(){
 
-    private String submitterId;
+  }
 
-    private Integer problemId;
+  @TableId(type = IdType.AUTO)
+  private Integer id;
 
-    private LocalDateTime submitTime;
+  private String submitterId;
 
-    private Integer cpuTimeCost;
+  private Integer problemId;
 
-    private Integer memoryCost;
+  @TableField(fill = FieldFill.INSERT)
+  private Timestamp submitTime;
 
-    private ResultEnum result;
+  private Integer cpuTimeCost;
 
+  private Integer memoryCost;
 
+  private ResultEnum result;
+
+  private String compilationErrorMessage;
 }

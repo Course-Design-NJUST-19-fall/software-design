@@ -13,22 +13,32 @@ import enums.SortsEnum;
  * @since 2021-09-16
  */
 @Data
-  @EqualsAndHashCode(callSuper = false)
-    public class Account implements Serializable {
+@EqualsAndHashCode(callSuper = false)
+public class Account implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  public Account(String userName, String password, String nicoName, SortsEnum sort, String phoneNumber, SortsEnum type, boolean listenMessage){
+    this.id =userName;
+    this.password =password;
+    this.nicoName =nicoName;
+    this.sort = sort;
+    this.listenMessage =listenMessage;
+    this.phoneNumber =phoneNumber;
+  }
+  public Account(){
 
-      private String id;
+  }
 
-    private String password;
+  private static final long serialVersionUID = 1L;
 
-    private String nicoName;
+  private String id;
 
-    private SortsEnum sort;
+  private String password;
 
-    private String phoneNumber;
+  private String nicoName;
 
-    private Boolean listenMessage;
+  private SortsEnum sort;
 
+  private String phoneNumber;
 
+  private Boolean listenMessage;
 }

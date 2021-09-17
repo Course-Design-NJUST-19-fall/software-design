@@ -1,6 +1,9 @@
 package entity;
 
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,28 +16,47 @@ import lombok.EqualsAndHashCode;
  * @since 2021-09-16
  */
 @Data
-  @EqualsAndHashCode(callSuper = false)
-    public class Problem implements Serializable {
+@EqualsAndHashCode(callSuper = false)
+public class Problem implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-      private Integer id;
+  public Problem(int id,int cpuTimeLimit,int memoryLimit,int acceptNumber,int submitNumber, int rating,
+                 String problemName,String problemPath,String inputPath,String outputPath)
+  {
+    this.id=id;
+    this.cpuTimeLimit=cpuTimeLimit;
+    this.memoryLimit=memoryLimit;
+    this.acceptNumber=acceptNumber;
+    this.submitNumber=submitNumber;
+    this.rating = rating;
+    this.problemName=problemName;
+    this.problemPath=problemPath;
+    this.inputPath=inputPath;
+    this.outputPath=outputPath;
+  }
+  public Problem(){
 
-    private Integer cpuTimeLimit;
+  }
 
-    private Integer memoryLimit;
+  @TableId(type = IdType.AUTO)
+  private Integer id;
 
-    private String problemName;
+  private Integer cpuTimeLimit;
 
-    private String problemPath;
+  private Integer memoryLimit;
 
-    private String inputPath;
+  private String problemName;
 
-    private String outputPath;
+  private String problemPath;
 
-    private Integer acceptNumber;
+  private String inputPath;
 
-    private Integer submitNumber;
+  private String outputPath;
 
+  private Integer acceptNumber;
 
+  private Integer submitNumber;
+
+  private Integer rating;
 }
