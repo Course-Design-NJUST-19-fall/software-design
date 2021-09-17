@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@MapperScan("mapper")
-@ComponentScan("handler")
+@MapperScan("com.test.mybatisplus.mapper")
+@ComponentScan("com.test.mybatisplus.handler")
 public class MybatisplusApplication {
 
     public static void main(String[] args) {
