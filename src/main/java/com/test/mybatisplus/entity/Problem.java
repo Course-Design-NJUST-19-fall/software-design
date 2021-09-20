@@ -21,7 +21,7 @@ public class Problem implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  public Problem(int id,int cpuTimeLimit,int memoryLimit,int acceptNumber,int submitNumber, int rating,
+  public Problem(Integer id,Integer cpuTimeLimit,Integer memoryLimit,Integer acceptNumber,Integer submitNumber, Integer rating,
                  String problemName,String problemPath,String inputPath,String outputPath)
   {
     this.id=id;
@@ -59,4 +59,12 @@ public class Problem implements Serializable {
   private Integer submitNumber;
 
   private Integer rating;
+
+  public void addSubmitNumber(Integer i){
+    submitNumber += 1;
+  }
+
+  public void addAcceptNumber(Integer i){
+    acceptNumber += 1;
+  }
 }

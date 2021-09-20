@@ -25,7 +25,7 @@ public class TestRecord implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  public TestRecord(int id, int problemId,String submitterId){
+  public TestRecord(Integer id, Integer problemId,String submitterId){
     this.id=id;
     this.problemId=problemId;
     this.submitterId=submitterId;

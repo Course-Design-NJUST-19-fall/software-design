@@ -34,6 +34,15 @@ public class Account implements Serializable {
   public Account(){
 
   }
+  public void addSubmitNumber(Integer i){
+    this.submitNumber += i;
+  }
+  public void addAcceptNumber(Integer i){
+    this.acceptNumber += i;
+  }
+  public void addRating(Integer i){
+    this.rating += i;
+  }
 
   private static final long serialVersionUID = 1L;
 
