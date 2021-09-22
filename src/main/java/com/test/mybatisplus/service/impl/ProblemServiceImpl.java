@@ -1,5 +1,8 @@
 package com.test.mybatisplus.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.test.mybatisplus.entity.Account;
 import com.test.mybatisplus.entity.Problem;
@@ -35,11 +38,12 @@ public class ProblemServiceImpl extends ServiceImpl<ProblemMapper, Problem> impl
     @Resource
     private AccountServiceImpl accountService;
 
-    public boolean ProblemJudge(Integer problemId, Account submitter, String code){
+    public boolean ProblemJudge(Integer problemId, String submitterId, String code){
         //获取相关信息，初始化
+        Account submitter=accountService.getById(submitterId);
         TestRecord testRecord = new TestRecord(null,problemId,submitter.getId());
         Problem problem = this.getById(problemId);
-        if(null == problem)
+        if(null == problem||null == submitter)
             return false;
 
         //存储代码文件
@@ -91,5 +95,13 @@ public class ProblemServiceImpl extends ServiceImpl<ProblemMapper, Problem> impl
             return null;
 
         return new File(dir.getAbsolutePath() + "/" + codeFileName);
+    }
+
+    public Page<Problem> getByPage(Integer page, Integer size){
+        LambdaQueryWrapper<Problem> problemLambdaQueryWrapper = Wrappers.lambdaQuery();
+        problemLambdaQueryWrapper.orderByAsc(Problem::getId);
+        Page<Problem> problemPage = new Page<>(page, size, true);
+        this.page(problemPage, problemLambdaQueryWrapper);
+        return problemPage;
     }
 }

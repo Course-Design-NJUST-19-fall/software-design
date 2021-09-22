@@ -51,7 +51,7 @@ class ProblemServiceImplTest {
             reader.close();
             code = stringBuilder.toString();
 
-            problemService.ProblemJudge(5,accountMapper.selectList(null).get(0),code);
+//            problemService.ProblemJudge(5,accountMapper.selectList(null).get(0),code);
 
             testRecordMapper.selectList(null).forEach(System.out::println);
             accountMapper.selectList(null).forEach(System.out::println);

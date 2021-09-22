@@ -1,14 +1,16 @@
 package com.test.mybatisplus.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.test.mybatisplus.entity.Account;
 import com.test.mybatisplus.enums.AccountServiceResultEnum;
 import com.test.mybatisplus.mapper.AccountMapper;
 import com.test.mybatisplus.service.AccountService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+
 
 /**
  * <p>
@@ -58,5 +60,12 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
         account.setClassId(rightAccount.getClassId());
 
         return  AccountServiceResultEnum.SUCCESS;
+    }
+    public Page<Account> getByPage(Integer page, Integer size){
+        LambdaQueryWrapper<Account> accountLambdaQueryWrapper = Wrappers.lambdaQuery();
+        accountLambdaQueryWrapper.orderByAsc(Account::getId);
+        Page<Account> accountPage = new Page<>(page, size, true);
+        this.page(accountPage, accountLambdaQueryWrapper);
+        return accountPage;
     }
 }

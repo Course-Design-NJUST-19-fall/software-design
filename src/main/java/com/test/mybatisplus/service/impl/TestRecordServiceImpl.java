@@ -1,5 +1,8 @@
 package com.test.mybatisplus.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.test.mybatisplus.entity.TestRecord;
 import com.test.mybatisplus.mapper.TestRecordMapper;
 import com.test.mybatisplus.service.TestRecordService;
@@ -16,5 +19,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class TestRecordServiceImpl extends ServiceImpl<TestRecordMapper, TestRecord> implements TestRecordService {
-
+    public Page<TestRecord> getByPage(Integer page, Integer size){
+        LambdaQueryWrapper<TestRecord> testRecordLambdaQueryWrapper = Wrappers.lambdaQuery();
+        testRecordLambdaQueryWrapper.orderByAsc(TestRecord::getId);
+        Page<TestRecord> testRecordPage = new Page<>(page, size, true);
+        this.page(testRecordPage, testRecordLambdaQueryWrapper);
+        return testRecordPage;
+    }
 }
