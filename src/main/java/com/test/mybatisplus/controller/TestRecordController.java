@@ -4,9 +4,7 @@ package com.test.mybatisplus.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.test.mybatisplus.entity.TestRecord;
 import com.test.mybatisplus.service.impl.TestRecordServiceImpl;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
 
@@ -21,6 +19,8 @@ import javax.annotation.Resource;
  * @since 2021-09-16
  */
 @Controller
+@RestController
+@CrossOrigin
 @RequestMapping("//testRecord")
 public class TestRecordController {
     @Resource

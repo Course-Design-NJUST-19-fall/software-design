@@ -21,6 +21,7 @@ import javax.annotation.Resource;
  */
 @Controller
 @RestController
+@CrossOrigin
 @RequestMapping("//account")
 public class AccountController {
     @Resource

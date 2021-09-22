@@ -17,9 +17,9 @@ class AccountMapperTest {
      }
      @Test
     void save(){
-         Account account = new Account("申明","123456","my son",SortsEnum.STUDENT,"15902351277",false);
+//         Account account = new Account("申明","123456","my son",SortsEnum.STUDENT,"15902351277",false);
 //         mapper.insert(account);
-         System.out.println(mapper.selectById(account));
+//         System.out.println(mapper.selectById(account));
 //         mapper.selectList(null).forEach(System.out::println);
      }
 }

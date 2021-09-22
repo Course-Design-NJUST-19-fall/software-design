@@ -21,6 +21,8 @@ import javax.annotation.Resource;
  * @since 2021-09-16
  */
 @Controller
+@RestController
+@CrossOrigin
 @RequestMapping("//problem")
 public class ProblemController {
     @Resource

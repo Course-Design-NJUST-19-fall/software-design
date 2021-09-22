@@ -4,8 +4,8 @@ spring:
     name: Online_Judge
   datasource:
     driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://121.37.137.154:26000/online_judge?useUnicode=true&characterEncoding=UTF-8&currentSchema=formal_db
-    url: jdbc:postgresql://192.168.0.112:26000/online_judge?useUnicode=true&characterEncoding=UTF-8&currentSchema=formal_db
+    url: jdbc:postgresql://121.37.137.154:26000/online_judge?useUnicode=true&characterEncoding=UTF-8&currentSchema=formal_db
+#    url: jdbc:postgresql://192.168.0.112:26000/online_judge?useUnicode=true&characterEncoding=UTF-8&currentSchema=formal_db
     username: team
     password: 4C7A63abcd!
 mybatis-plus:
@@ -15,5 +15,5 @@ mybatis-plus:
     com.test.mybatisplus.enums
 # 应用服务 WEB 访问端口
 server:
-  port: 8080
+  port: 8181
 
