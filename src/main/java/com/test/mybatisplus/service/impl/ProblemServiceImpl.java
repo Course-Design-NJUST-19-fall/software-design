@@ -35,23 +35,23 @@ public class ProblemServiceImpl extends ServiceImpl<ProblemMapper, Problem> impl
     @Resource
     private AccountServiceImpl accountService;
 
-    public void ProblemJudge(Integer problemId, Account submitter, String code){
+    public boolean ProblemJudge(Integer problemId, Account submitter, String code){
         //获取相关信息，初始化
         TestRecord testRecord = new TestRecord(null,problemId,submitter.getId());
         Problem problem = this.getById(problemId);
         if(null == problem)
-            return;
+            return false;
 
         //存储代码文件
         File codeFile = ProblemServiceImpl.generateDirectionAndFile();
         if(null == codeFile)
-            return;
+            return false;
         if(!ProblemServiceImpl.writeCodeToFile(codeFile, code))
-            return;
+            return false;
         //judge
         JudgeHost judgeHost = new JudgeHost(problem, codeFile);
         if(!judgeHost.startJudge(testRecord))
-            return;
+            return false;
 
         //数据更新,扫尾
         testRecordService.save(testRecord);
@@ -64,6 +64,7 @@ public class ProblemServiceImpl extends ServiceImpl<ProblemMapper, Problem> impl
         }
         this.updateById(problem);
         accountService.updateById(submitter);
+        return true;
     }
 
     static private boolean writeCodeToFile(File codeFile, String code){

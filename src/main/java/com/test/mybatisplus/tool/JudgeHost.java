@@ -201,20 +201,20 @@ public class JudgeHost {
             //若有问题直接返回
             if(null == inf)
                 return false;
-            if (inf.runningCondition != ResultEnum.ACCEPT) {
-                result.setResult(inf.runningCondition);
-                this.cleanFile();
-                return false;
-            }
-            if (!this.compareFile(i)) {
-                result.setResult(ResultEnum.WRONG_ANSWER);
-                this.cleanFile();
-                return false;
-            }
 
             //更新资源消耗数据，双双取最高值
             result.setCpuTimeCost(Math.max(result.getCpuTimeCost(), inf.cpuTimeCost));
             result.setMemoryCost(Math.max(result.getMemoryCost(), inf.memoryCost));
+            if (inf.runningCondition != ResultEnum.ACCEPT) {
+                result.setResult(inf.runningCondition);
+                this.cleanFile();
+                return true;
+            }
+            if (!this.compareFile(i)) {
+                result.setResult(ResultEnum.WRONG_ANSWER);
+                this.cleanFile();
+                return true;
+            }
         }
         return true;
     }
