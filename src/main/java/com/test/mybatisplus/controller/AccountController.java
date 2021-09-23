@@ -5,6 +5,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.test.mybatisplus.entity.Account;
+import com.test.mybatisplus.enums.AccountServiceResultEnum;
+import com.test.mybatisplus.enums.AddResultEnum;
+import com.test.mybatisplus.enums.SortsEnum;
 import com.test.mybatisplus.service.impl.AccountServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -32,8 +35,13 @@ public class AccountController {
         return accountService.getByPage(page,size);
     }
     @PostMapping("/save")
-    public boolean save(@RequestBody Account account){
-        return accountService.save(account);
+    public AddResultEnum save(@RequestBody Account account){
+        Account otherAccount = accountService.getById(account.getId());
+        if(otherAccount==null) {
+            if(accountService.save(account)) return AddResultEnum.SUCCESS;
+            else return AddResultEnum.ERROR;
+        }
+        else return AddResultEnum.HAVE_EXIST;
     }
     @GetMapping("/findById/{id}")
     public Account findById(@PathVariable("id") String id){
@@ -50,6 +58,18 @@ public class AccountController {
         QueryWrapper<Account> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("id",id);
         return accountService.remove(queryWrapper);
+    }
+    @GetMapping("/signIn/{id}/{password}")
+    public SortsEnum signIn(@PathVariable("id") String id, @PathVariable("password") String  password){
+        Account account=new Account();
+        account.setId(id);
+        account.setPassword(password);
+        if(accountService.signIn(account)== AccountServiceResultEnum.SUCCESS) {
+            if(account.getSort()==SortsEnum.学生) return SortsEnum.学生;
+            else if(account.getSort()==SortsEnum.老师) return SortsEnum.老师;
+            else return SortsEnum.管理员;
+        }
+        else return null;
     }
 
 }

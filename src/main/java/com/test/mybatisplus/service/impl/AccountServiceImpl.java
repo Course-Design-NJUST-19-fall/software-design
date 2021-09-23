@@ -47,8 +47,8 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
             return AccountServiceResultEnum.ID_NOT_EXISTS;
         if(!rightAccount.getPassword().equals(account.getPassword()))
             return AccountServiceResultEnum.PASSWORD_ERROR;
-        if(!rightAccount.getSort().equals(account.getSort()))
-            return AccountServiceResultEnum.SORT_ERROR;
+//        if(!rightAccount.getSort().equals(account.getSort()))
+//            return AccountServiceResultEnum.SORT_ERROR;
 
         //为controller设置account类其余属性，controller可直接使用
         account.setNicoName(rightAccount.getNicoName());
@@ -58,7 +58,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
         account.setAcceptNumber(rightAccount.getAcceptNumber());
         account.setRating(rightAccount.getRating());
         account.setClassId(rightAccount.getClassId());
-
+        account.setSort(rightAccount.getSort());
         return  AccountServiceResultEnum.SUCCESS;
     }
     public Page<Account> getByPage(Integer page, Integer size){

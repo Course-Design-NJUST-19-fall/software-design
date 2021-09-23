@@ -50,6 +50,12 @@ public class ProblemServiceImpl extends ServiceImpl<ProblemMapper, Problem> impl
         File codeFile = ProblemServiceImpl.generateDirectionAndFile();
         if(null == codeFile)
             return false;
+        System.out.println();
+        System.out.println();
+        System.out.println(submitterId);
+        System.out.println(problemId);
+        System.out.println();
+        System.out.println();
         if(!ProblemServiceImpl.writeCodeToFile(codeFile, code))
             return false;
         //judge

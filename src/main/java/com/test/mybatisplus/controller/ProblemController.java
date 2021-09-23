@@ -5,12 +5,14 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.test.mybatisplus.entity.Problem;
+import com.test.mybatisplus.enums.AddResultEnum;
 import com.test.mybatisplus.service.impl.ProblemServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 /**
  * <p>
@@ -33,9 +35,7 @@ public class ProblemController {
         return problemService.getByPage(page,size);
     }
     @PostMapping("/save")
-    public boolean save(@RequestBody Problem problem){
-        return problemService.save(problem);
-    }
+    public boolean save(@RequestBody Problem problem){return problemService.save(problem);}
     @GetMapping("/findById/{id}")
     public Problem findById(@PathVariable("id") Integer id){
         return problemService.getById(id);
@@ -53,7 +53,11 @@ public class ProblemController {
         return problemService.remove(queryWrapper);
     }
     @PostMapping("/judgeProblem")
-    public boolean judgeProblem(@RequestBody Integer problemId,@RequestBody String submitterId, @RequestBody String code) {
+    public boolean judgeProblem(@RequestBody Map<String,Object> datas) {
+        String proId=(String)datas.get("problemId");
+        Integer problemId=Integer.valueOf(proId);
+        String submitterId=(String)datas.get("submitterId");
+        String code=(String) datas.get("code");
         return problemService.ProblemJudge(problemId,submitterId,code);
     }
 
