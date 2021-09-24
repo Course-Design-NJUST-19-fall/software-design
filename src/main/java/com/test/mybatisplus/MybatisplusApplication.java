@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @MapperScan("com.test.mybatisplus.mapper")
-@ComponentScan({"com.test.mybatisplus.handler","com.test.mybatisplus.service","com.test.mybatisplus.controller"})
+@ComponentScan({"com.test.mybatisplus.handler","com.test.mybatisplus.service","com.test.mybatisplus.controller","com.test.mybatisplus.config"})
 public class MybatisplusApplication {
 
     public static void main(String[] args) {

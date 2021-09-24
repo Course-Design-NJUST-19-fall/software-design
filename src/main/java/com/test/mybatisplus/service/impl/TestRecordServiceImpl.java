@@ -19,11 +19,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class TestRecordServiceImpl extends ServiceImpl<TestRecordMapper, TestRecord> implements TestRecordService {
+
     public Page<TestRecord> getByPage(Integer page, Integer size){
         LambdaQueryWrapper<TestRecord> testRecordLambdaQueryWrapper = Wrappers.lambdaQuery();
-        testRecordLambdaQueryWrapper.orderByAsc(TestRecord::getId);
+        testRecordLambdaQueryWrapper.orderByDesc(TestRecord::getId);
         Page<TestRecord> testRecordPage = new Page<>(page, size, true);
-        this.page(testRecordPage, testRecordLambdaQueryWrapper);
-        return testRecordPage;
+        Page<TestRecord> resPage=this.page(testRecordPage, testRecordLambdaQueryWrapper);
+        return resPage;
     }
 }
