@@ -34,6 +34,10 @@ public class AccountController {
     public Page<Account> getByPage(@PathVariable("page") Integer page, @PathVariable("size") Integer size){
         return accountService.getByPage(page,size);
     }
+    @GetMapping("/getRank/{page}/{size}")
+    public Page<Account> getRankByPage(@PathVariable("page") Integer page, @PathVariable("size") Integer size){
+        return accountService.getRankByPage(page,size);
+    }
     @PostMapping("/save")
     public AddResultEnum save(@RequestBody Account account){
         Account otherAccount = accountService.getById(account.getId());
@@ -71,6 +75,7 @@ public class AccountController {
         }
         else return null;
     }
+
 
 }
 

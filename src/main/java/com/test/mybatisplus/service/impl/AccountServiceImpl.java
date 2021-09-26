@@ -68,4 +68,12 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
         this.page(accountPage, accountLambdaQueryWrapper);
         return accountPage;
     }
+    public Page<Account> getRankByPage(Integer page, Integer size){
+        LambdaQueryWrapper<Account> accountLambdaQueryWrapper = Wrappers.lambdaQuery();
+        accountLambdaQueryWrapper.orderByDesc(Account::getRating);
+        Page<Account> accountPage = new Page<>(page, size, true);
+        this.page(accountPage, accountLambdaQueryWrapper);
+        return accountPage;
+    }
+
 }
